@@ -11,8 +11,17 @@ dependencies = [
     "rich>=13.0",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
 [project.scripts]
 dungeon-cli = "cli:main"
+
+[tool.setuptools]
+# Flat layout: setuptools auto-discovery finds dm/, ui/, engine/ and content/
+# and refuses the build as ambiguous. Declare them explicitly.
+packages = ["dm", "ui", "engine", "content"]
+py-modules = ["cli"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
