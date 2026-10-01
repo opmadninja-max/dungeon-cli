@@ -1,0 +1,47 @@
+{
+  "id": "station_nine",
+  "title": "Station Nine",
+  "genre": "sci-fi",
+  "world_seed": "A derelict space station orbiting a dead star. Life support flickers. The crew vanished decades ago, but their logs remain. Something moved in the shadows of the cargo bay. The station AI, NINE, may still be functional—or it may have gone rogue.",
+  "goal": "Reach the Control Deck, restore power, and escape Station Nine.",
+  "victory_room": "control_deck",
+  "starting_room": "airlock",
+  "rooms": [
+    {
+      "id": "airlock",
+      "name": "Main Airlock",
+      "description": "The outer door is sealed. Emergency lights flicker red. A decompressed body floats in the corner."
+    },
+    {
+      "id": "corridor",
+      "name": "Main Corridor",
+      "description": "A long hallway lined with frozen pipes. Sparking wires hang from the ceiling. A distant clanking echoes."
+    },
+    {
+      "id": "cargo",
+      "name": "Cargo Bay",
+      "description": "Massive containers are stacked to the ceiling. Something has been moving them. Scratch marks on the floor."
+    },
+    {
+      "id": "control_deck",
+      "name": "Control Deck",
+      "description": "The heart of the station. Console screens flicker to life as you enter. Through the viewport, the dead star looms."
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Engineer",
+      "hp": 22,
+      "items": ["multitool", "flashlight", "patch_kit"],
+      "flavor": "Practical and resourceful. You can fix almost anything."
+    },
+    {
+      "name": "Marine",
+      "hp": 28,
+      "items": ["pistol", "ammo", "armor_vest"],
+      "flavor": "Tough and combat-ready. You've survived worse."
+    }
+  ],
+  "dm_style": "Tense and claustrophobic. Emphasize isolation, malfunctioning technology, and the feeling of being hunted. Describe sounds, flickering lights, and the cold of space.",
+  "opening_narration": "The airlock hisses open. Station Nine stretches before you, dark and silent except for the occasional spark and creak. Your mission: reach the Control Deck and restore power."
+}

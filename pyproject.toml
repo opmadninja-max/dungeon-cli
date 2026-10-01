@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dungeon-cli"
+version = "0.1.0"
+description = "A single-player terminal text adventure with an LLM Dungeon Master"
+requires-python = ">=3.10"
+dependencies = [
+    "rich>=13.0",
+]
+
+[project.scripts]
+dungeon-cli = "cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

@@ -1,0 +1,61 @@
+[llm]
+# provider = "subprocess" is the default — set to "http" to use a direct
+# OpenAI-compatible endpoint instead of shelling out to a CLI tool.
+provider = "http"
+model = "gpt-4o-mini"
+# Reasoning models (o1, o3, gpt-5) reject or degrade when the DM persona is
+# packed into a single user message. Set to true to send it as a real system
+# message. Leave false (default) for everything else.
+# Also set this true if you get 502 "The system field can't be blank" — some
+# models served through proxies require a system message to be present.
+system_role = false
+timeout = 120
+retries = 2
+save_dir = "./saves"
+
+# --- HTTP mode: any OpenAI-compatible endpoint ---
+[llm.http]
+base_url = "https://api.openai.com/v1"
+# api_key left blank — falls back to $LLM_API_KEY, then $OPENAI_API_KEY.
+# When no key is available at all, no Authorization header is sent, which is
+# what keyless local servers (Ollama, vLLM) and open proxies expect.
+# api_key = "sk-..."
+
+# --- Sampling parameters (all optional; unset keys are omitted, not sent as null) ---
+# temperature = 0.9     # float, 0..2
+# max_tokens  = 800     # int, > 0
+# top_p       = 0.95    # float, 0..1
+# seed        = 42      # int
+# Any other key is forwarded verbatim and unvalidated, for provider-specific params.
+
+# --- Extra request headers (optional) ---
+# For endpoints that don't authenticate with `Authorization: Bearer`, or that
+# want attribution headers. Supplying `api-key`/`Authorization` here suppresses
+# the auto-generated one.
+# [llm.http.headers]
+# api-key      = "..."               # Azure OpenAI
+# HTTP-Referer = "https://my.game"   # OpenRouter
+# X-Title      = "dungeon-cli"       # OpenRouter
+
+# --- Subprocess mode (default): your LLM CLI tool, prompt via stdin, response via stdout ---
+# argv = ["claude", "-p"] (uncomment + set provider to use instead)
+#
+# --- Provider examples (base_url + typical model) ---
+# OpenAI:        base_url = "https://api.openai.com/v1"            model = "gpt-4o-mini"
+# Groq:          base_url = "https://api.groq.com/openai/v1"       model = "llama-3.3-70b-versatile"
+# Together:      base_url = "https://api.together.xyz/v1"           model = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+# OpenRouter:    base_url = "https://openrouter.ai/api/v1"          model = "openai/gpt-4o-mini"
+# Local Ollama:  base_url = "http://localhost:11434/v1"             model = "llama3.2"
+# Local vLLM:    base_url = "http://localhost:8000/v1"              model = "meta-llama/Llama-3.3-70B-Instruct"
+# Azure OpenAI:  base_url = "https://<resource>.openai.azure.com/openai"  model = "<deployment>"
+#                and set system_role = true plus [llm.http.headers] api-key = "<key>"
+
+[prompt]
+budget = 8000
+recent_turns = 5
+compact_after = 10
+
+[ui]
+typewriter = false
+typewriter_delay = 0.02
+spinner = true

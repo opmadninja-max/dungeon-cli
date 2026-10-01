@@ -1,0 +1,47 @@
+{
+  "id": "sunken_vault",
+  "title": "The Sunken Vault",
+  "genre": "fantasy",
+  "world_seed": "An ancient dwarven vault, flooded and forgotten for a thousand years. The air is thick with moisture and the smell of rust. Bioluminescent fungi cast an eerie blue glow across stone walls carved with runes of warding. Somewhere deep within, the Amulet of Tides waits in the darkness.",
+  "goal": "Find the Amulet of Tides in the Vault Chamber and escape the sunken vault.",
+  "victory_room": "vault_chamber",
+  "starting_room": "entrance",
+  "rooms": [
+    {
+      "id": "entrance",
+      "name": "Flooded Entrance",
+      "description": "Water ankle-deep, ruins of a massive gate. A faded mosaic depicts dwarven smiths at work."
+    },
+    {
+      "id": "hall",
+      "name": "Hall of Echoes",
+      "description": "A vast chamber where every footstep echoes endlessly. Collapsed pillars litter the floor."
+    },
+    {
+      "id": "traps",
+      "name": "Trap Corridor",
+      "description": "A narrow passage with pressure plates visible in the floor. Some have already triggered."
+    },
+    {
+      "id": "vault_chamber",
+      "name": "The Vault Chamber",
+      "description": "A massive door stands open. Inside, on a stone pedestal, rests the Amulet of Tides, glowing with soft blue light."
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "Dwarf Scout",
+      "hp": 25,
+      "items": ["torch", "rope", "pickaxe"],
+      "flavor": "Stout and keen-eyed, you can see in the dark and climb anything."
+    },
+    {
+      "name": "Human Mage",
+      "hp": 18,
+      "items": ["spellbook", "dagger", "mana_potion"],
+      "flavor": "Witty and ambitious, you trade durability for arcane power."
+    }
+  ],
+  "dm_style": "Gritty and atmospheric. Emphasize water, decay, ancient traps, and the weight of history. The dungeon feels alive and hostile.",
+  "opening_narration": "You stand before the sealed entrance to the Sunken Vault. Water trickles from the ancient gate, and a cold draft carries the scent of stone and time. Your quest: find the Amulet of Tides."
+}
